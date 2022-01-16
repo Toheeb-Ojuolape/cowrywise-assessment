@@ -32,7 +32,7 @@ export default{
 
 
 
-<style>
+<style lang="scss">
 input[type=text]{
   width: 100%;
   box-sizing: border-box;

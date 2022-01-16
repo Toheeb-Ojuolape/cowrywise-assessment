@@ -3,7 +3,7 @@
 </template>
 
 
-<style>
+<style lang="scss">
 
 @font-face {
   font-family: BR FIRMA ;

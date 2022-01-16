@@ -75,25 +75,27 @@ export default{
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$skeleton-color:#e6e6e6;
+$skeleton-text:#f5f5f5;
 
 .pictureName{
     font-size:17px;
     padding:5px;
     width:100%;
     border-radius:4px;
-    background:#e6e6e6;
-    color:#e6e6e6;
+    background:$skeleton-color;
+    color:$skeleton-color;
     margin-bottom:5px !important
 }
 
 .pictureLocation{
    font-size:14px;
-   background:#e6e6e6;
+   background:$skeleton-color;
    padding:4px;
    border-radius:4px;
    width:80%;
-   color:#e6e6e6
+   color:$skeleton-color
 
 }
 
@@ -125,7 +127,7 @@ export default{
   height:95%;
   padding:10px 0px 17px 0px;
   margin:0px -7px 0px 0px;
-  background:#f5f5f5;
+  background:$skeleton-text;
   border-radius:16px
 }
 
@@ -223,7 +225,7 @@ export default{
   height:96%;
   padding:10px 0px 17px 0px;
   margin:0px -7px 0px 0px;
-  background:#f5f5f5;
+  background:$skeleton-text;
   border-radius:16px
 }
 
@@ -321,7 +323,7 @@ export default{
   height:94%;
   padding:10px 0px 17px 0px;
   margin:0px -7px 0px 0px;
-  background:#f5f5f5;
+  background:$skeleton-text;
   border-radius:16px
 }
 

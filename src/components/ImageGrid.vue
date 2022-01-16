@@ -3,7 +3,7 @@
        <div class="grid">
         <div v-for="(picture, i) in images"
         :key="i">
-        <div class="imageContainer" @click="showImage(picture,i)" :class="'animate__animated animate__slow animate__fadeInUp animate__delay-'+i+++'s'">
+        <div class="imageContainer" @click="showImage(picture)" :class="'animate__animated animate__slow animate__fadeInUp animate__delay-'+i+'s'">
         <img class="imageStyle" :src="picture.urls.small">
         <div class="textInImageContainer">
         <div style="padding:0px 14px 10px 14px">
@@ -64,10 +64,10 @@ export default{
         })
     },
     methods:{
-        showImage(e,i){
+        showImage(e){
             this.modal = true
             this.singlePicture = e
-            console.log(i)
+           
         },
       
     }
@@ -76,7 +76,10 @@ export default{
 
 </script>
 
-<style>
+
+
+<style lang="scss">
+$white-color: white;
 
 .pictureName{
     font-size:17px
@@ -100,7 +103,7 @@ export default{
 .imageContainer{
   position: relative;
   text-align: start;
-  color: white;
+  color: $white-color;
   width:100%;
   margin-bottom:25px
 }
@@ -163,7 +166,7 @@ export default{
 .imageCard{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background: white;
+    background: $white-color;
     width:90%;
     border-radius:16px;
    margin:auto auto 130px auto
@@ -199,7 +202,7 @@ export default{
 .imageContainer{
   position: relative;
   text-align: start;
-  color: white;
+  color: $white-color;
 }
 .imageStyle{
     border-radius:16px
@@ -258,7 +261,7 @@ export default{
 .imageCard{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background: white;
+    background: $white-color;
     width:40%;
     border-radius:16px;
     margin:auto auto 130px auto
@@ -295,7 +298,7 @@ export default{
 .imageContainer{
   position: relative;
   text-align: start;
-  color: white;
+  color: $white-color;
 }
 .imageStyle{
     border-radius:16px;
@@ -355,7 +358,7 @@ export default{
 .imageCard{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background: white;
+    background: $white-color;
     width:40%;
     border-radius:16px;
     margin:auto auto 130px auto
@@ -372,10 +375,5 @@ export default{
     font-size:20px;
     font-weight:600
 }
-
- 
-
- 
 }
-
 </style>

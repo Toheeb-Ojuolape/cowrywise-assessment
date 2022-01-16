@@ -42,12 +42,12 @@ export default {
 </script>
 
 
-<style>
-
+<style lang="scss">
+$primary-color:#dde2e9;
 
   .searchcard{
     padding:48px;
-    background-color:#dde2e9;
+    background-color:$primary-color;
     text-align: center;
     margin:-8px;
 }
@@ -58,7 +58,7 @@ export default {
 @media screen and (max-width: 600px) {
  .searchcard{
     padding:48px auto 48px auto;
-    background-color:#dde2e9;
+    background-color:$primary-color;
     text-align: center;
     margin:70px
 }

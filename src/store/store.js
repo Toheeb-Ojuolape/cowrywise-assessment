@@ -34,12 +34,12 @@ export default createStore({
           } else{
             state.images =   state.images.filter(
                 (image) =>
-                  image.user.name.toLowerCase().indexOf(searchImage) > -1
+                  image.user.name.toLowerCase().indexOf(searchImage) > -1 
               )
           }
           setTimeout(()=>{
             state.loading = false
-          },2000)
+          },1000)
     }
   },
 

@@ -46,7 +46,9 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+
+$primary-color:#dde2e9;
 
  .searchHeader{
      color:#283a5a;
@@ -56,7 +58,7 @@ export default {
  }
   .searchcard{
     padding:48px 54px 48px 54px;
-    background-color:#dde2e9;
+    background-color:$primary-color;
     margin:-8px;
 }
 
@@ -66,7 +68,7 @@ export default {
 @media screen and (max-width: 600px) {
  .searchcard{
     padding:48px 20px 48px 20px;
-    background-color:#dde2e9;
+    background-color:$primary-color;
     margin:-8px
 }
 }
