@@ -30,14 +30,16 @@ export default createStore({
     searching (state,value){
         state.loading = true
         state.searchValue = value
-        const searchImage = value.toLowerCase().trim();
+        console.log(Object.keys(state.images[0]))
+        const searchImage = state.searchValue.toLowerCase().trim();
           if (!searchImage){
             state.images
           } else{
-            state.images =   state.images.filter(
+            state.images =  (JSON.parse(JSON.stringify(state.images))).filter(
                 (image) =>
-                  image.alt_description.toLowerCase().indexOf(searchImage) > -1 
+                  image.user.name.toLowerCase().indexOf(searchImage) > -1 
               )
+          
           }
           setTimeout(()=>{
             state.loading = false
