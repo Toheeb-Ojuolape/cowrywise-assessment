@@ -2,7 +2,7 @@
     <div class="searchcard">
         <div class="searchcard">
         <form @submit.prevent="searchStuff()">
-        <input type="text" v-model="search" label="Search" placeholder="Search for photo" />
+        <input type="text" v-model="search" label="Search" placeholder="Search for writing prompt" />
         </form>
         </div>
     </div>
