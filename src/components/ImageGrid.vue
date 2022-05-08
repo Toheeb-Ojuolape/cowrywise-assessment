@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "ImageGrid",
   data() {
@@ -77,14 +79,16 @@ export default {
       this.singlePicture = e;
     },
     downloadImage(e) {
-      const fileName = e.user.name.split("/").pop();
-      var el = document.createElement("a");
-      el.setAttribute("href", e.urls.regular);
-      el.setAttribute("download", fileName);
-      document.body.appendChild(el);
-      el.click();
-      el.remove();
-      this.$swal({
+      console.log(e.urls.full)
+      axios({
+        url:"https://tellbooksapi.herokuapp.com/download",
+        method:"POST",
+        data:{
+          url:e.urls.full,
+          fileName:e.user.name
+        }
+      }).then(()=>{
+         this.$swal({
         title:"Download Successful!",
         icon:"success",
         text:"Are you ready to tell a story about this picture? then get started by tapping the button below",
@@ -94,6 +98,14 @@ export default {
           window.open("https://tell.africa/write","_blank");
         }
       })
+      }).catch((error)=>{
+        this.$swal({
+          title:"Download Failed!",
+          icon:"error",
+          text:error.message,
+        })
+      })
+     
     },
   },
 };
