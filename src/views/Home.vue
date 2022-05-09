@@ -12,6 +12,12 @@
     </button>
   <button @click="nextPage()" class="button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAlklEQVRIie3UsQ3CUAyE4U/MQKCCYUCipSFMEwYKFYvAFCAhGCIUoUieoLMrOMmddb98z8/8FaQlLrhhnQFo0L3rgSoasBkAOhyjAdAWkDoaMMV9AHhiHg3ZGk9xigbQ558aVaXfpNStqo2nOHxrnESTI5QeUeoj7wvzNtL800ebRQLKaHaR5unHLv1cL3DGFato8x/XCwFMPpf5ayxcAAAAAElFTkSuQmCC"/></button>
   </div>
+  <footer>
+    <div class="center">
+      <p class="footerText">Built with APIs from</p> <img  src="https://unsplash.com/blog/content/images/max/2560/1-vQ5EsgnJkANWb5fktHPwnw.jpeg" alt="unsplashlogo"/>
+    </div>
+
+  </footer>
   </div>
 </template>
 
@@ -104,6 +110,18 @@ $primary-color:#dde2e9;
   display:flex
 }
 
+.center{
+  display:flex;
+  justify-content: center;
+}
 
+.center img{
+  height:90px;
+  width:150px;
+  object-fit: cover;
+}
 
+.center .footerText{
+  margin:40px 20px 0px 0px
+}
 </style>
