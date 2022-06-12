@@ -30,17 +30,16 @@ export default createStore({
     searching (state,value){
         state.loading = true
         state.searchValue = value
-        console.log(Object.keys(state.images[0]))
-        const searchImage = state.searchValue.toLowerCase().trim();
-          if (!searchImage){
-            state.images
-          } else{
-            state.images =  (JSON.parse(JSON.stringify(state.images))).filter(
-                (image) =>
-                  image.user.name.toLowerCase().indexOf(searchImage) > -1 
-              )
-          
+        axios({
+          method:"GET",
+          url:"https://api.unsplash.com/search/photos?client_id=aJ--0d1eYOAJW7tN1X1kx1wZfXMYTMsyKfNEV1FlwIU&query="+value+"&query=african&per_page=20&page="+state.page,
+          headers: {
+            ContentType: "application/json",
           }
+      }).then((response)=>{
+        console.log(response)
+         state.images =response.data.results
+      })
           setTimeout(()=>{
             state.loading = false
           },1000)
@@ -69,6 +68,30 @@ export default createStore({
     }
   },
 
+
+  prevSearch(state){
+    state.loading = true
+    if(state.page > 1){
+      state.page--
+    axios({
+      method:"GET",
+      url:"https://api.unsplash.com/search/photos?client_id=aJ--0d1eYOAJW7tN1X1kx1wZfXMYTMsyKfNEV1FlwIU&query="+state.searchValue+"&query=african&per_page=20&page="+state.page,
+      headers: {
+        ContentType: "application/json",
+      }
+  }).then((response)=>{
+    console.log(response)
+     state.images =response.data.results
+  })
+  setTimeout(()=>{
+    state.loading = false
+  },2000)
+  }
+  else{
+    return
+  }
+},
+
   nextPage(state){
     state.loading = true
       state.page++
@@ -85,6 +108,25 @@ export default createStore({
   setTimeout(()=>{
     state.loading = false
   },2000)
+},
+
+
+nextSearch(state){
+  state.loading = true
+    state.page++
+  axios({
+    method:"GET",
+    url:"https://api.unsplash.com/search/photos?client_id=aJ--0d1eYOAJW7tN1X1kx1wZfXMYTMsyKfNEV1FlwIU&query="+state.searchValue+"&query=african&per_page=20&page="+state.page,
+    headers: {
+      ContentType: "application/json",
+    }
+}).then((response)=>{
+  console.log(response)
+   state.images =response.data.results
+})
+setTimeout(()=>{
+  state.loading = false
+},2000)
 }
 
   },
@@ -99,8 +141,15 @@ export default createStore({
     prevPage: (context) => {
       context.commit("prevPage");
     },
+    prevSearch: (context) => {
+      context.commit("prevSearch");
+    },
+
     nextPage: (context) =>{
       context.commit("nextPage");
+    },
+    nextSearch: (context) =>{
+      context.commit("nextSearch");
     }
   }
 })
